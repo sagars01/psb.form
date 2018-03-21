@@ -1,0 +1,32 @@
+<div class = "psb-mod-wrapper container" style="margin-top : 5px;">
+        <h3 style="text-align: center; padding-bottom : 10px">Select an option to modify</h3>
+        <table class ="table">
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Modify</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pre-Engagement</td>
+              <td><button ng-click = "changeRoute('admin.preengage')" class = "btn btn-xs btn-primary">Edit</button></td>
+            </tr>
+            <tr>
+              <td>PSB</td>
+              <td><button ng-click = "changeRoute('admin.psb')" class = "btn btn-xs btn-primary">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Help</td>
+              <td><button class = "btn btn-xs btn-primary" ng-click = "changeRoute('admin.help')" >Edit </button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<footer>
+    <div class="footer-btn container">
+      <button class="btn btn-primary pull-left"
+          ng-click="backbutton()"
+          >Back</button>
+    </div>
+  </footer>      

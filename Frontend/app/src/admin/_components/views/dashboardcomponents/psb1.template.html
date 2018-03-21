@@ -1,0 +1,88 @@
+<section class="main-body-wrapper">
+    
+        <div class = "container head-banner">
+          <h3>Welcome to the NetApp Product Security Baseline (PSB)!</h3>
+        </div>
+        
+        <div class="container first-table">
+          <h2>Fill the Table</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Number</th>
+                <th>Requirement</th>
+                <th>Why?</th>
+                <th>Status<span class="mandatory">*</span></th>
+                <th>Justification<span class="mandatory">*</span></th>
+              </tr>
+            </thead>
+            <tbody ng-form = "psbForm">
+              <tr ng-repeat="tableData in tableDataIterator" ng-if="tableData.psb_id != undefined">
+                <td>{{tableData.psb_id}}</td>
+                <td>{{tableData.requirement}}</td>
+                <td>{{tableData.reason}}</td>
+                <td>
+                  <select ng-model="tableData.status" ng-required = "true" ng-disabled="isAdminViewing"> 
+                    <option>{{tableData.status}}</option>
+                    <option 
+                     ng-repeat="statusOption in statusOptions">{{statusOption}}</option>
+                  </select>
+                </td>
+                <td><input 
+                  ng-required="true" 
+                  ng-model="tableData.justification" 
+                  ng-disabled="isAdminViewing"
+                  type = "text" placeholder="Put in justification" /></td>
+              </tr>
+              <!-- <tr>
+                <td>ASR-10</td>
+                <td>For command-line authentication, the root account should not be permitted to login remotely</td>
+                <td>The root account is the highest privileged account within our product. We need to provide multiple layers of protection to insulate the root account from being compromised.</td>
+                <td><select>
+                    <option>PASS</option>
+                    <option>FAIL</option>
+                    <option>BACKLOG</option>
+                    <option>APPLICABLE</option>
+                    <option>Not Yet Answered</option>
+                </select></td>
+                <td><input 
+                  ng-model=""
+                  type = "text" placeholder="Put in justification" /></td>
+              </tr> -->
+            </tbody>
+          </table>
+	<div class="comment-box" style="margin: 15px 0px;">
+            <textarea ng-model= "tableDataIterator.comment"  placeholder="Comments" rows="4" style="width : 100%; resize : vertical; padding: 5px;"></textarea>
+          </div>
+        </div>
+	<footer>
+          <div class="footer-btn container">
+            <button ng-click="formActionAdmin('a')" ng-disabled = "tableDataIterator.comment == ''|| tableDataIterator.comment == undefined" class="btn btn-lg btn-primary pull-right">Approve</button>
+            <button ng-click = "formActionAdmin('r')"  ng-disabled = "tableDataIterator.comment == ''|| tableDataIterator.comment == undefined" class="btn btn-lg btn-danger pull-right">Reject</button>
+	    <button class="btn btn-primary pull-left"
+          ng-click="backbutton()"
+          >Back</button>
+          </div>
+        </footer>
+      </section>
+      <!-- <footer>
+        <div class="footer-btn container">
+          <button class="btn btn-lg btn-primary pull-right" 
+          ng-disabled="psbForm.$invalid" 
+          ng-click="submitPsbForm()"
+          ng-if="!isAdminViewing">Submit</button>
+        </div>
+      </footer>
+     -->
+    <style>
+      table {
+      border : 1px solid #000;
+    }
+    .table > thead > tr > th {
+      border : none;
+    }
+    .footer-btn > .btn{
+      width : 30%;
+    }
+    
+    </style>

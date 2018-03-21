@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link data-require="bootstrap@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script data-require="bootstrap@3.3.6" data-semver="3.3.6" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="custom-font.css" />
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container-fluid header-wrapper">
+      <h3>NetApp</h3>
+    </div>
+  </header>
+  <section class="main-body-wrapper">
+    
+    <div class = "container head-banner">
+      <h3>Welcome to the NetApp Product Security Baseline (PSB)!</h3>
+    </div>
+    
+    <div class="container first-table">
+      <h2>First Table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Outcome</th>
+            <th>Description</th>
+            <th>Justification</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PASS</td>
+            <td>The product meets this requirement in its entirety with no additional development required.</td>
+            <td>The product does not meet this requirement, and the product team plans to comply in the future.</td>
+          </tr>
+          <tr>
+            <td>FAIL</td>
+            <td>List the evidence that causes you to draw this conclusion.</td>
+            <td>Document when the functionality to meet this requirement will be integrated into a release.</td>
+          </tr>
+          <tr>
+            <td>BACKLOG</td>
+            <td>The product does not meet this requirement, and the product team has no plans for compliance.</td>
+            <td>The requirement is not applicable to this product.</td>
+          <tr>
+            <td>NOT APPLICABLE</td>
+            <td>Document why you have no plans for compliance.</td>
+            <td>Describe why this requirement is not applicable to your product. Provide enough detail for a member of the Security Team to draw the same conclusion.</td>
+          </tr>
+          <tr>
+            <td>NOT YET ANSWERED</td>
+            <td></td>
+            <td></td>
+          </tr>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!---Second Table -->
+
+    <div class="container second-table">
+      <h2>Second Table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Language</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>MUST</td>
+            <td>This word, or the terms "REQUIRED" or "SHALL", mean that the definition is an absolute requirement of the specification.</td>
+          </tr>
+          <tr>
+            <td>MUST NOT</td>
+            <td>This phrase, or the phrase "SHALL NOT", mean that the definition is an absolute prohibition of the specification.</td>
+          </tr>
+          <tr>
+            <td>SHOULD</td>
+            <td>This word, or the adjective "RECOMMENDED", mean that there may exist valid reasons in particular circumstances to ignore a particular item, but the full implications must be understood and carefully weighed before choosing a different course.</td>
+          </tr>
+          <tr>
+            <td>SHOULD NOT</td>
+            <td>This phrase, or the phrase "NOT RECOMMENDED" mean that there may exist valid reasons in particular circumstances when the particular behavior is acceptable or even useful, but the full implications should be understood and the case carefully weighed before implementing any behavior described with this label.</td>
+          </tr>
+          <tr>
+            <td>MAY</td>
+            <td>This word, or the adjective "OPTIONAL", mean that an item is truly optional. One vendor may choose to include the item because a particular marketplace requires it or because the vendor feels that it enhances the product while another vendor may omit the same item. An implementation which does not include a particular option MUST be prepared to interoperate with another implementation which does include the option, though perhaps with reduced functionality. In the same vein an implementation which does include a particular option MUST be prepared to interoperate with another implementation which does not include the option (except, of course, for the feature the option provides.)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--Third Table -->
+    <div class="container first-table">
+      <h2>Third Table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Outcome</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Attack Surface Reduction</td>
+            <td>Attack surface is the total of all the interfaces a bad person could use to attack a NetApp product. These requirements provide methods to close interfaces that are not in use, and limit the number of ways an attacker could reach a NetApp product.</td>
+          </tr>
+          <tr>
+            <td>Cryptography</td>
+            <td>Cryptography is the computerized encoding and decoding of information. These requirements govern what forms of cryptography to use in NetApp products and the various details about how to implement.</td>
+          </tr>
+          <tr>
+            <td>System and Information Integrity</td>
+            <td>System and information integrity is the protection of data wherever it exists inside a NetApp product. These requirements provide guidance about securing protocols and other areas of the system.</td>
+          </tr>
+          <tr>
+            <td>Audit</td>
+            <td>Audit is a record of all the actions that occur on a NetApp product. Audit is crucial when performing a security investigation, to uncover what exactly happened, and in what order events occurred. These requirements determine where and how much audit data must be stored.</td>
+          </tr>
+          <tr>
+            <td>Third-Party Software</td>
+            <td>Third-party software (open source) is included in almost all NetApp products. 3rd party software has vulnerabilities, and these requirements govern the Black Duck process to ensure that old 3rd party software is not allowed to continue to place NetApp products and customers at risk.</td>
+          </tr>
+          <tr>
+            <td>Security Assurance</td>
+            <td>Security assurance includes the various requirements dictated to NetApp by the US Federal Government and other global governments.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--Fourth Table -->
+    <div class="container first-table">
+      <h2>Fourth Table</h2>
+      <table class="table">
+        <thead>
+          <tr id="ft-head">
+            <th>Requirement Status</th>
+            <th>Column Labels</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <thead>
+          <tr>
+            <th>Row Lebels</th>
+            <th>Attack Surface Reduction</th>
+            <th>Crypto</th>
+            <th>Features Functions</th>
+            <th>Processes</th>
+            <th>Grand Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>NOT YET ANSWERED</td>
+            <td>66</td>
+            <td>28</td>
+            <td>25</td>
+            <td>2</td>
+            <td>121</td>
+          </tr>
+          <tr>
+            <td>Grand Total</td>
+            <td>66</td>
+            <td>28</td>
+            <td>25</td>
+            <td>2</td>
+            <td>121</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>  
+  </section>
+  <footer>
+    <div class="footer-btn container">
+      <button class="btn btn-lg btn-primary pull-right">Next</button>
+    </div>
+  </footer>
+</body>
+
+</html>

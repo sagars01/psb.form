@@ -1,0 +1,92 @@
+<div class="wrapper">
+        <section class="container main-body-wrapper">
+          <div class="head-banner">
+            <h3>Admin Task/ Workspace</h3>
+          </div>
+          <!--Q & A table -->
+          <div class="first-table">
+            <table class="table">
+              <thead class="table-header-2">
+                <tr>
+                  <td>
+                    <select ng-change="selectedProductChange()" ng-model="selectedProduct" class="form-control" id="sel1">
+                      <option>Select a product</option>
+                      <option ng-repeat="product in productList | uniq : 'Product'" ng-value="product">
+                        <span>{{product.Product}}</span>
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <select ng-change="versionChange()" 
+                            ng-disabled="selectedProduct.Product_id == null" 
+                            ng-model="selectedVersion" class="form-control" id="sel2">  
+                            <option>{{selectedVersion}}</option>      
+                            <option ng-repeat="v in versions" ng-value="v">
+                            {{v}}
+                            </option>
+                      </select>
+                  </td>
+                  <th>
+                    <button class="btn btn-lg btn-primary pull-right" ng-click="goToRegister()">Register Product</button>
+                  </th>
+                  <th>
+                      
+                    <button class="btn btn-lg btn-primary pull-right" 
+                    ng-disabled="selectedVersion == 'Select a version'" 
+                    ng-click="goToModify()">Modify Template</button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody ng-if="selectedVersion != 'Select a version'">
+                <!--Questionaire-->
+                <tr>
+                  <td>Pre-Engagement</td>
+                  <td>
+                    <button class="btn btn-xs btn-primary" 
+                      ng-disabled = "selectedVersion == 'Select a version' " 
+                      ng-click="goToForms('admin.dashpreengage' , 'new')">New</button>
+                    <button class="btn btn-xs btn-primary" 
+                    ng-disabled = "selectedVersion == 'Select a version' " 
+                    ng-click="goToForms('admin.dashpreengage' , 'view')">View</button>
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr >
+                  <td>PSB</td>
+                  <td>
+                      <button class="btn btn-xs btn-primary" ng-disabled = "selectedVersion == 'Select a version' " 
+                      ui-sref = "admin.psbview">View</button>
+                    <!-- <a ui-sref = "psbform">View</a> -->
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Help</td>
+                  <td>
+                    <a ui-sref = "help">View</a>
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>POC</td>
+                  <td>
+                    <a ui-sref = "admin.poc">Edit</a>
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <footer>
+          <div class="footer-btn container">
+            <button 
+            ng-disabled="selectedVersion == 'Select a version'" 
+            class="btn btn-primary pull-right">Download Attachment</button>
+          </div>
+        </footer>
+      </div>    

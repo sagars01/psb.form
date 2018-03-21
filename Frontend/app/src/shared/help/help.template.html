@@ -1,0 +1,158 @@
+<section class="main-body-wrapper">
+    
+  <div class = "container head-banner">
+    <h3>Welcome to the NetApp Product Security Baseline (PSB)!</h3>
+  </div>
+  
+  <div class="container first-table">
+    <h2>Results</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Outcome</th>
+          <th>Description</th>
+          <th>Justification</th>
+          <!-- <th>Actions</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="help in helpIterator.first_table" ng-if="help.description != ''">
+          <td ng-show="preview" >{{help.outcome}}</td>
+          <td ng-show="preview">{{help.description}}</td>
+          <td ng-show="preview">{{help.justification}}</td>
+
+          <td ng-show="!preview" style ="width : 15%">
+              <textarea style="width : 100%; resize : vertical;"
+                ng-disabled="help.id != undefined"
+                ng-model="help.outcome" type = "text" placeholder = "Change Language">
+              </textarea>
+            </td>
+            <td ng-show="!preview">
+              <textarea style="width : 100%; resize : vertical;"
+              ng-disabled="help.id != undefined"
+                ng-model="help.description" type = "text" placeholder = "Change Definition">
+              </textarea>
+            </td>
+            <td ng-show="!preview">
+                <textarea style="width : 100%; resize : vertical;"
+                ng-disabled="help.id != undefined"
+                  ng-model="help.justification" type = "text" placeholder = "Change Definition">
+                </textarea>
+              </td>
+            <!-- <td ng-show="!preview" style ="width : 15%">
+                <button 
+                ng-disabled="help.outcome == undefined"
+                ng-if="help.id == '' || help.id == undefined"
+                ng-click = "saveHelp(helpIterator.first_table ,help ,$index, 'first_table')" 
+                class="btn btn-xs btn-primary">Save</button> 
+                <button ng-click="rmHelp(helpIterator.first_table ,help ,$index , 'first_table')" 
+                class="btn btn-xs btn-danger">delete</button>
+            </td> -->
+
+        </tr>
+      </tbody>
+    </table>
+<!-- 
+    <div class="addHelp">
+      <button class=" btn btn-md btn-primary" ng-click="addHelp('first')">Add Row</button>
+    </div> -->
+  </div>
+
+  <!---Second Table -->
+
+  <div class="container second-table">
+    <h2>Jargons</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Language</th>
+          <th>Definition</th>
+          <!-- <th>Actions</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr >
+          <td>MUST</td>
+          <td>This word, or the terms "REQUIRED" or "SHALL", mean that the definition is an absolute requirement of the specification.</td>
+        </tr> -->
+        <tr ng-repeat="secondhelp in helpIterator.second_table">
+            <td ng-show="preview">{{secondhelp.language}}</td>
+            <td ng-show="preview">{{secondhelp.definition}}</td>
+
+            <td ng-show="!preview" style ="width : 15%">
+                <textarea 
+                ng-disabled="secondhelp.id != undefined"
+                ng-show="!preview" style="width : 100%; resize : vertical;"
+                  ng-model="secondhelp.language" type = "text" placeholder = "Change Language">
+                </textarea>
+              </td>
+              <td ng-show="!preview">
+                <textarea 
+                ng-disabled="secondhelp.id != undefined"
+                ng-show="!preview" style="width : 100%; resize : vertical;"
+                  ng-model="secondhelp.definition" type = "text" placeholder = "Change Definition">
+                </textarea>
+              </td>
+        </tr>
+      </tbody>
+    </table>
+<!-- 
+    <div class="addHelp">
+      <button class=" btn btn-md btn-primary" ng-click="addHelp('second')">Add Row</button>
+    </div> -->
+  </div>
+
+  <!--Third Table -->
+  <div class="container first-table">
+    <h2>Category</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Outcome</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="thirdhelp in helpIterator.third_table">
+          <td ng-show="preview">{{thirdhelp.outcome}}</td>
+          <td ng-show="preview">{{thirdhelp.description}}</td>
+
+            <td ng-show="!preview" style ="width : 15%">
+              <textarea 
+              ng-disabled="thirdhelp.id != undefined"
+              ng-show="!preview" style="width : 100%; resize : vertical;"
+                ng-model="thirdhelp.outcome" type = "text" placeholder = "Change outcome">
+              </textarea>
+            </td>
+            <td ng-show="!preview">
+              <textarea 
+              ng-disabled="thirdhelp.id != undefined"
+              ng-show="!preview" style="width : 100%; resize : vertical;"
+                ng-model="thirdhelp.description" type = "text" placeholder = "Change Description">
+              </textarea>
+            </td>
+            <!-- <td ng-show="!preview" style ="width : 15%">
+                <button 
+                ng-disabled="thirdhelp.outcome == undefined "
+                ng-if="thirdhelp.id == '' || thirdhelp.id == undefined"
+                ng-click = "saveHelp(helpIterator.third_table , thirdhelp, $index, 'third_table')" class="btn btn-xs btn-primary">Save</button> 
+                <button 
+                ng-click="rmHelp(Questionaires ,question ,$index , 'third_table')" 
+                class="btn btn-xs btn-danger">delete</button>
+            </td> -->
+        </tr>
+      </tbody>
+    </table>
+    <!-- <div class="addHelp">
+      <button class=" btn btn-md btn-primary" ng-click="addHelp('third')">Add Row</button>
+    </div> -->
+  </div>  
+</section>
+ <footer>
+    <div class="footer-btn container">
+      <button class="btn btn-primary pull-left"
+          ng-click="backBtn()"
+          >Back</button>
+    </div>
+  </footer>
+

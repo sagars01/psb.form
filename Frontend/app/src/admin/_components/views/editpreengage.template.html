@@ -1,0 +1,142 @@
+<!--Pre Engagement Form -->
+
+<div class="wrapper" >
+    <section class="container main-body-wrapper" ng-form="preEngQuestionform">
+      
+      <div class = "head-banner">
+        <h3>Pre-Engagement</h3>
+      </div>
+      <!--Q & A table -->
+      <div class="first-table">
+        <table class="table">
+          <thead class = "table-header-2">
+            <tr>
+              <th>Questionaires</th>
+              <!-- <th>Response from Project Team</th> -->
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--Questionaire-->
+            <tr ng-repeat="question in Questionaires track by $index">
+               <td>
+                <span ng-show="preview">{{question.Question}}</span>
+                <span> 
+                <textarea ng-disabled="preview" ng-show="!preview" style="width : 100%; resize : vertical;"
+                ng-model="question.Question" type = "text" placeholder = "Add a question"></textarea>
+                </span>
+                <td ng-show="preview">
+                    <input ng-disabled="preview" ng-required="true" type = "text" placeholder = "Response"/>
+                  </td>
+              </td>
+              
+              <td ng-show="!preview">
+                <button ng-disabled="question.isDisabled"
+                ng-click = "saveQuestion($index , question)" class="btn btn-xs btn-primary">Save</button> 
+                <button ng-click="removeQues(Questionaires ,question ,$index)" class="btn btn-xs btn-danger">delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div ng-show="!preview" class="addbtn">
+            <button class="btn btn-primary" ng-click="addQuestion()">Add Question</button>
+          </div>
+      </div>
+      <!--Q & A table end ng-blur="showResponse()"-->
+      
+      <!--Milestone and Date of Completion-->
+      
+      <div class = "milestone-wrapper row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <table class="table" >
+          <thead class = "table-header-2">
+            <tr>
+              <th>Milestone</th>
+              <th>To be answered</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="milestone in Milestones">
+              <td>
+                <span ng-show="preview">{{milestone.Milestone}}</span>
+                <textarea ng-show="!preview" style="width : 100%; resize : vertical"
+                ng-model="milestone.Milestone"></textarea>  
+              </td>
+              <td>
+                  <!-- jqdatepicker is the directive to format date object to string -->
+                <input jqdatepicker ng-required="true" ng-show="preview"
+                ng-disabled="preview"
+                ng-model="milestone.Milestone_response" 
+                type = "text" 
+                placeholder = "Pick a date"/> 
+                <button ng-show="!preview" ng-disabled="milestone.Milestone =='' " ng-click="svNewQuesM(Milestones ,milestone ,$index)" class="btn btn-xs btn-primary">Save</button>
+                <button ng-show="!preview" ng-click="removeQuesM(Milestones ,milestone ,$index)" class="btn btn-xs btn-danger">delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="addbtn" ng-show="!preview">
+            <button class="btn btn-primary" ng-click="addMilestone()">Add Milestone</button>
+          </div>
+        </div>  
+      </div>
+        
+      <!--Minutes of Meeting -->
+        
+      <!--Details of Next Phase -->
+      <div ng-show="preview">
+            <div class = "mom-wrapper">
+                <div class="form-group">
+                  <label for="comment">Minutes of Meeting:</label>
+                  <textarea ng-disabled="preview" ng-model="response[0].Mom" class="form-control" rows="5" id="mom"
+                  placeholder = "Minutes of Meeting"
+                  ></textarea>
+                </div>
+              </div>
+            
+          <div class = "donp-wrapper">
+            <div class="form-group">
+              <label for="comment">Details of Next Phase:</label>
+              <textarea ng-disabled="preview" ng-model="response[0].Phase_details" class="form-control" rows="5" id="donp"
+              placeholder = "Put in your FS Details, admin guide, Architecture Document, DFD"
+              ></textarea>
+            </div>
+          </div>  
+        </div>
+        <footer>
+            <!--ng-disabled="preEngQuestionform.$invalid"-->
+            <div class="footer-btn container">
+              <button 
+              class="btn btn-lg btn-primary" ng-click="switchMode()">{{preEditSwitch}}</button>
+	      <button class="btn btn-primary pull-left"
+          ng-click="backbutton()"
+          >Back</button>
+            </div>
+        </footer>
+    </section>
+  </div>
+
+    <style>
+    table {
+    border : 1px solid #000;
+  }
+  .table > thead > tr > th {
+    border : none;
+  }
+  .footer-btn > .btn{
+    width : 30%;
+    text-align: center;
+    position: relative;
+    /* left: 50%; */
+    left: calc(50% - 100px);
+  }
+  #ft-head {
+    background-color : #5687bf;
+    color : #fff;
+  }
+  .table-header-2 {
+    background : #cecece;
+    border-bottom : 1px solid #000;
+  }
+    </style>

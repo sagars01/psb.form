@@ -1,0 +1,86 @@
+/* Styles go here */
+@import "custom-font.css";
+
+
+body {
+ margin-bottom : 15px; 
+ font-family: 'Gotham Narrow SSm A','Gotham Narrow SSm B',Helvetica,Arial,sans-serif;
+}
+.form-signin {
+  text-align: center;
+}
+.danger-text {
+  color : red;
+  font-size: 1em;
+}
+.header-wrapper {
+  background-color : #5687bf;
+}
+.header-wrapper h3 {
+  color : #fff;
+  }
+.head-banner h3 {
+  text-align : center;
+}
+table {
+  border : 1px solid #000;
+}
+.table > thead > tr > th {
+  border : none;
+}
+.footer-btn > .btn{
+  width : 30%;
+}
+#ft-head {
+  background-color : #5687bf;
+  color : #fff;
+}
+.table-header-2 {
+  background : #cecece;
+  border-bottom : 1px solid #000;
+}
+.mandatory {
+  color : red;
+}
+
+/*td {*/
+/*  border : 1px solid #000;*/
+/*}*/
+#logout {
+  top: 15px;
+    position: relative;
+    vertical-align: middle;
+}
+.border-lrb {
+  border-left: 1px solid #cecece;
+  border-right: 1px solid #cecece;
+  border-bottom: 1px solid #cecece;
+}
+.border-lrb input {
+  width : 50%;
+}
+.addbtn {
+  display: block;
+  clear: both;
+  height: 50px;
+}
+.addbtn .btn {
+  float: right;
+}
+.footer-btn .btn {
+  margin-left: 10px;
+}
+.form-status {
+  font-size: 14px;
+  background: #ef5858;
+  border: 2px solid #6a6ae8;
+  padding: 4px;
+  margin: 5px;
+  color: #fff;
+  float: right;
+  position: relative;
+  top: -6px;
+}
+.accepted {
+  background: #4cc54c;
+}

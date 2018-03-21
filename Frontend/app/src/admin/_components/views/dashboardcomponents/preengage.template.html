@@ -1,0 +1,126 @@
+<!--Pre Engagement Form -->
+
+<div class="wrapper" >
+        <section class="container main-body-wrapper" ng-form="preEngQuestionform">
+          
+          <div class = "head-banner">
+            <h3>Pre-Engagement</h3>
+          </div>
+          <!--Q & A table -->
+          <div class="first-table">
+            <table class="table">
+              <thead class = "table-header-2">
+                <tr>
+                  <th>Questionaires</th>
+                  <th>Response from Project Team</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--Questionaire-->
+                <tr ng-repeat="question in Questionaires">
+                  <td>{{question.Question}}</td>
+                  <td>
+                    <input 
+                    ng-disabled="viewOnly"
+                    ng-required="true" 
+                    ng-model="question.Question_response" 
+                    type = "text" placeholder = "Response"/>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--Q & A table end ng-blur="showResponse()"-->
+          
+          <!--Milestone and Date of Completion-->
+          
+          <div class = "milestone-wrapper row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <table class="table" >
+              <thead class = "table-header-2">
+                <tr>
+                  <th>Milestone</th>
+                  <th>To be answered</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="milestone in Milestones">
+                  <td>{{milestone.Milestone}}</td>
+                  <td>
+                      <!-- jqdatepicker is the directive to format date object to string -->
+                    <input 
+                    jqdatepicker 
+                    ng-required="true" 
+                    ng-model="milestone.Milestone_response"
+                    ng-disabled="viewOnly"
+                    type = "text" placeholder = "Pick a date"/>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+          </div>
+          
+          <!--Minutes of Meeting -->
+          <div class = "mom-wrapper">
+            <div class="form-group">
+              <label for="comment">Minutes of Meeting:</label>
+              <textarea 
+              ng-disabled="viewOnly"
+              ng-model="response[0].Mom" 
+              class="form-control" 
+              rows="5" id="mom"
+              placeholder = "Minutes of Meeting"
+              ></textarea>
+            </div>
+          </div>
+          
+          <!--Details of Next Phase -->
+          <div class = "donp-wrapper">
+            <div class="form-group">
+              <label for="comment">Details of Next Phase:</label>
+              <textarea 
+              ng-disabled="viewOnly"
+              ng-model="response[0].Phase_details" class="form-control" rows="5" id="donp"
+              placeholder = "Put in your FS Details, admin guide, Architecture Document, DFD"
+              ></textarea>
+            </div>
+          </div>
+          
+        </section>
+        <footer>
+          <!--ng-disabled="preEngQuestionform.$invalid"-->
+          <div class="footer-btn container">
+            <button 
+            class="btn btn-lg btn-primary pull-right" 
+            ng-hide="viewOnly"
+            ng-click="submitPreEngagementForm()">Submit</button>
+	    <button class="btn btn-primary pull-left"
+            ng-click="bckBtn()"
+            >Back</button>
+          </div>
+        </footer>
+      
+        </div>
+      
+      
+        <style>
+        table {
+        border : 1px solid #000;
+      }
+      .table > thead > tr > th {
+        border : none;
+      }
+      .footer-btn > .btn{
+        width : 30%;
+      }
+      #ft-head {
+        background-color : #5687bf;
+        color : #fff;
+      }
+      .table-header-2 {
+        background : #cecece;
+        border-bottom : 1px solid #000;
+      }
+        </style>

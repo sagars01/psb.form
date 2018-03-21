@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link data-require="bootstrap@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script data-require="bootstrap@3.3.6" data-semver="3.3.6" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="custom-font.css" />
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container-fluid header-wrapper">
+      <h3>NetZapp</h3>
+    </div>
+  </header>
+  <section class="container main-body-wrapper">
+    
+    <div class = "head-banner">
+      <h3>Pre-Engagement</h3>
+    </div>
+    <!--Q & A table -->
+    <div class="first-table">
+      <table class="table">
+        <thead class = "table-header-2">
+          <tr>
+            <th>Questionaires</th>
+            <th>Response from Project Team</th>
+          </tr>
+        </thead>
+        <tbody>
+	{% for row in data %}
+        <tr>
+            {% for d in row %}
+                <td>{{ d }}</td>
+		<td>
+                <input type = "text" placeholder = "Response"/>
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}          
+        </tbody>
+      </table>
+    </div>
+    <!--Q & A table end-->
+    
+    <!--Milestone and Date of Completion-->
+    
+    <div class = "milestone-wrapper row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <table class="table">
+        <thead class = "table-header-2">
+          <tr>
+            <th>Questionaires</th>
+            <th>Response from Project Team</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ascertain development tools, language, IDE, team size and release cadence?</td>
+            <td>
+              <input type = "text" placeholder = "Response"/>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Gather information on how testing is being performed for non-security related requirements. This will help us to find optimal integration points for SDL without much disruption to current workflow [ProdOps Security SDL team member to drive this discussion</td>
+            <td>
+              <input type = "text" placeholder = "Response"/>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>How compliance related requirements are currently being driven?</td>
+            <td>
+              <input type = "text" placeholder = "Response"/>
+            </td>
+          </tr>
+          <tr>
+            <td>How ecosystem dependencies (i.e. components that this product is dependent on) are coordinated in relation to planned set features in this product?</td>
+            <td>
+              <input type = "text" placeholder = "Response"/>
+            </td>
+          </tr>
+          <tr>
+            <td>How security related requirements are tracked, considered and worked in current releases?</td>
+            <td>
+              <input type = "text" placeholder = "Response"/>
+            </td>
+          </tr>
+          <tr>
+            <td>How security related requirements are tracked, considered and worked in current releases?</td>
+            <td>
+              <input type = "text" placeholder = "Response"/>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+    </div>
+    
+    <!--Minutes of Meeting -->
+    <div class = "mom-wrapper">
+      <div class="form-group">
+        <label for="comment">Minutes of Meeting:</label>
+        <textarea class="form-control" rows="5" id="mom"
+        placeholder = "Minutes of Meeting"
+        ></textarea>
+      </div>
+    </div>
+    
+    <!--Details of Next Phase -->
+    <div class = "donp-wrapper">
+      <div class="form-group">
+        <label for="comment">Details of Next Phase:</label>
+        <textarea class="form-control" rows="5" id="donp"
+        placeholder = "Put in your FS Details, admin guide, Architecture Document, DFD"
+        ></textarea>
+      </div>
+    </div>
+    
+  </section>
+  <footer>
+    <div class="footer-btn container">
+      <button class="btn btn-lg btn-primary pull-right">Submit</button>
+    </div>
+  </footer>
+</body>
+
+</html>

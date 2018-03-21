@@ -1,0 +1,55 @@
+
+    <section class="container main-body-wrapper">
+            <!--Heading - body-->
+            <div class=" head-banner">
+              <h3>Welcome to the NetApp Product Security Team</h3>
+            </div>
+            <!--Main Section-->
+            <!--Option - Products-->
+            <div class="option-wrapper">
+              <div class="form-group">
+                <select ng-change="selectedProductChange()" ng-model="selectedProduct" class="form-control" id="sel1">
+                  <option>Select a product</option>
+                  <option ng-repeat="product in products | uniq : 'Product'" ng-value="product">
+                    {{product.Product}}
+                  </option>
+                </select>
+                <select ng-change="versionChange()" 
+                        style="margin-top : 15px" 
+                        ng-disabled="selectedProduct.Product_id == null" 
+                        ng-model="selectedVersion" class="form-control" id="sel2">  
+                  <option>Select a version</option>
+                  <option ng-repeat="v in prodVersions" ng-value="v">
+                        {{v}}
+                    </option>
+                  </select>
+              </div>
+            </div>
+            <!--Option - Products-->
+            <!--Buttons - Path PSB | P-->
+            <div class="path-wrapper row">
+                <div class="col-sm-2 col-md-2">
+                  </div>
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <!-- <button class="btn btn-lg btn-primary" ng-click = "redirectToQuestions('pre')">
+                Pre-Engagement
+              </button> -->
+                <button ng-hide="selectedProduct == 'Select a product' || selectedVersion == 'Select a version' " 
+                class="btn btn-lg btn-primary" 
+                ui-sref="manager.psb">
+                PSB
+              </button>        
+              <div class="col-sm-2 col-md-2">
+              </div>
+            </div>
+          </section>
+          <style>
+              
+              .path-wrapper div {
+                margin-bottom : 10px;
+              }
+              .path-wrapper div button {
+                width : 100%;
+              }
+          </style>
+      

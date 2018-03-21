@@ -1,0 +1,92 @@
+<section class="main-body-wrapper">
+    
+        <div class = "container head-banner">
+          <h3>Welcome to the NetApp Product Security Baseline (PSB)!</h3>
+        </div>
+        
+        <div class="container first-table">
+          <div>
+	    <span class = "pull-right" style = "position : relative ; top : 10px;"><a ui-sref = "help">Need help?</a></span>
+	    <span class="form-status" ng-if="formStatus == 'rejected'">Form Status : Rejected</span>
+            <span class="form-status accepted" ng-if="formStatus == 'processing'">Form Status : Pending Manager Action</span>
+            <span class="form-status accepted" ng-if="formStatus == 'approved'">Accepted</span>
+	    <span class="form-status accepted" ng-if="formStatus == null">New</span>
+
+	    <!--<span class = "pull-right"><a ui-sref = "help">Need help?</a></span>-->
+        </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Number</th>
+                <th>Requirement</th>
+                <th>Why?</th>
+                <th>Status<span class="mandatory">*</span></th>
+                <th>Justification<span class="mandatory">*</span></th>
+              </tr>
+            </thead>
+            <tbody ng-form = "psbForm">
+              <tr ng-repeat="tableData in tableDataIterator" ng-if="tableData.psb_id !== undefined">
+                <td >{{tableData.psb_id}}</td>
+                <td >{{tableData.requirement}}</td>
+                <td >{{tableData.reason}}</td>
+                <td >
+                  <select ng-model="tableData.status" ng-required = "true" ng-disabled="formStatus != null && formStatus != 'rejected'"> 
+                    <option 
+                     ng-repeat="statusOption in statusOptions">{{statusOption}}</option>
+                  </select>
+                </td>
+                <td><input 
+                  ng-required="true" 
+                  ng-model="tableData.justification" 
+                  ng-disabled="formStatus != null && formStatus != 'rejected'"
+                  type = "text" placeholder="Put in justification" /></td>
+              </tr>
+            </tbody>
+          </table>
+	  </div>
+	  </section>
+     <footer ng-if = "formStatus == 'rejected' || formStatus == null">     
+<div class="footer-btn container">
+          <!--Upload Button -->
+          <div class="col-md-4">
+              <form>
+                  <div class="form-group">
+                      <input type="file" demo-file-model="myFile"  class="form-control filed" id ="myFileField"/>
+                      <button ng-click="uploadFile()" ng-disabled = "uploadBtn" class = "btn btn-primary">Upload File</button>
+                      <p class="danger-text" style="padding-top : 10px;">{{invalidText}}</p>
+			<p style="padding-top : 10px; color : #585757; font-style : italic ; font-size : 14px">* always upload the file while submitting the form</p>
+			<p style="padding-top : 10px; color : #585757; font-style : italic ; font-size : 14px">* File size should less than 10MB and only zipped format </p>
+                  </div>
+                  
+           </form>  
+          </div>
+
+          <div class="col-md-8">
+            <button class="btn btn-lg btn-primary pull-right"  
+            ng-click="submitPsbForm()"
+		ng-disabled = "psbForm.$invalid"
+            ng-if="!isAdminViewing">Submit</button>
+            <button class="btn btn-lg btn-primary pull-right" 
+             ng-disabled = "psbForm.$invalid"
+            ng-click="draftPSBForm()">Save as Draft</button>
+	     <button class="btn btn-primary pull-left"
+          ng-click="backbutton()"
+          >Back</button>
+        </div>
+        </div>
+      </footer>
+    <style>
+      table {
+      border : 1px solid #000;
+      }
+      .table > thead > tr > th {
+        border : none;
+      }
+      .footer-btn > .btn{
+        width : 30%;
+      }
+      .filed {
+        width: 14em;
+        float: left;
+      }
+    </style>

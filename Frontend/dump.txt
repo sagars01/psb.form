@@ -1,0 +1,44 @@
+app.controller("baseCtrl" , function($rootScope , $scope , $state, $timeout , toaster, mainService){
+    $timeout(function(){
+        $scope.current = $state.current.name;
+    }) 
+    $scope.$watch('current' , function(value){
+        if(value == 'login') {
+            $rootScope.$broadcast($scope.current);
+        }
+    }) 
+
+    //Checking authentication
+
+    $rootScope.userKey = "role";
+    $rootScope.previous = "";
+    var userRoles = mainService.getUserRoles($rootScope.userKey);
+     $rootScope.$on('$stateChangeStart' , function(e ,to) {
+        var routeRoles = to.data.roles;
+        var counter = 0;
+        var isValidSession = localStorage.getItem('user');
+        if(isValidSession != "true" || isValidSession == null) {
+            $timeout(function(){
+                $state.go('login');
+            })
+        } 
+        
+        if(userRoles != routeRoles && routeRoles != "all" && userRoles != null) {
+            if(userRoles == 'admin') {
+                $timeout(function(){$state.go('admin.dashboard'); 
+                toaster.pop('error' , 'Access Denied');
+            });
+            }else if(userRoles == 'user') {
+                $timeout(function(){
+                    $state.go('user.home');
+                    toaster.pop('error' , 'Access Denied');
+                });
+            }
+        }
+    })
+
+    //Configs
+    $rootScope.adminKey = 'role';
+    $rootScope.userSessionKey = 'user';
+
+})

@@ -1,0 +1,26 @@
+/* Styles go here */
+
+@import "custom-font.css";
+
+
+body {
+ margin-bottom : 15px; 
+ font-family: 'Gotham Narrow SSm A','Gotham Narrow SSm B',Helvetica,Arial,sans-serif;
+}
+.header-wrapper {
+  background-color : #5687bf;
+}
+.header-wrapper h3 {
+  color : #fff;
+  }
+.head-banner h3 {
+  text-align : center;
+}
+
+.thanks-wrapper {
+        position : relative;
+        top : calc(50vh - 50px);
+      }
+      .thanks-wrapper h1 {
+        text-align : center;
+      }

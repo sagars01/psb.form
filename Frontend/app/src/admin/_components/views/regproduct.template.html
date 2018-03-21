@@ -1,0 +1,37 @@
+<div class="wrapper">
+        <section class="container main-body-wrapper">
+          <div class="head-banner">
+            <h3>Add New Product</h3>
+          </div>
+          <!--Q & A table -->
+          <div class="first-table">
+            <table class="table border-lrb">
+              
+                <!--Questionaire-->
+                <tr >
+                  <td>Product</td>
+                  <td>
+                    <input ng-model="product_name"  type = "text" placeholder="Enter Product Name" />
+              </td> 
+                </tr>
+                <tr >
+                  <td>Version</td>
+                  <td><input ng-model="version" placeholder="Enter Version of Product" type = "text" /></td>
+                </tr>
+                <!-- <tr>
+                  <td>POC</td>
+                  <td><input type = "text" placeholder="" /></td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <footer>
+          <div class="footer-btn container">
+            <button ng-disabled="product_name == '' || version == '' " class="btn btn-primary pull-right" ng-click="addProduct()" >Save</button>
+	    <button class="btn btn-primary pull-left"
+            ng-click="backbutton()"
+            >Back</button>
+          </div>
+        </footer>
+      </div>

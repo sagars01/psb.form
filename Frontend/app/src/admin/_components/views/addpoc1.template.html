@@ -1,0 +1,68 @@
+<div class="wrapper">
+    <section class="container main-body-wrapper" ng-form="preEngQuestionform">
+      <div class="head-banner">
+        <h3>Point of Contact</h3>
+      </div>
+      <!--Q & A table -->
+      <div class="first-table">
+        <table class="table">
+          
+            <!--Questionaire-->
+            <tr >
+              <td>Manager</td>
+              <!-- <td ng-repeat="m in main.manager track by $index"> -->
+                <td>
+                  <input type="text" ng-model="temp.manager" placeholder="Manager Name">
+              </td>
+              <td>
+                <button class="btn btn-sm btn-primary" ng-click="addField('manager')">Add Manager</button>
+                <button class="btn btn-sm btn-primary" ng-click="removeField('manager')">Remove Manager</button>
+              </td>  
+            <tr >
+              <td>Product Engineer</td>
+              <!-- <td ng-repeat="e in main.engineer track by $index"> -->
+                <td>
+                <input type = "text" ng-model="temp.product_engineer" placeholder="Engineer Name" />
+              </td>
+              <td>
+                  <button class="btn btn-sm btn-primary" ng-click="addField('engineer')">Add Engineer</button>
+                  <button class="btn btn-sm btn-primary" ng-click="removeField('engineer')">Remove Engineer</button>
+                </td>
+            </tr>
+            <tr >
+              <td>SDL Engineer Name</td>
+              <!-- <td ng-repeat="s in main.sdl track by $index"> -->
+              <td>
+                <input type = "text" ng-model="temp.sdl_engineer" placeholder="SDL Engineer Name" />
+              </td>
+              <td>
+                  <button class="btn btn-sm btn-primary" ng-click="addField('sdl')">Add Manager</button>
+                  <button class="btn btn-sm btn-primary" ng-click="removeField('sdl')">Remove Manager</button>
+              </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <footer>
+      <div class="footer-btn container">
+        <button class="btn btn-md btn-primary pull-right" ng-click="savePoc()">Save</button>
+	<button class="btn btn-primary pull-left"
+          ng-click="backbutton()"
+          >Back</button>
+      </div>
+    </footer>
+  </div>
+  <style>
+  .table>tbody>tr>td {
+    border : none;
+  }
+  .first-table {
+    border: 1px solid;
+    margin-bottom: 10px;
+    overflow: scroll;
+  }
+  .first-table table {
+    border : none;
+  }
+  </style>

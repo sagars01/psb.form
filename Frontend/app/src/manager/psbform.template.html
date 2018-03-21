@@ -1,0 +1,66 @@
+<section class="main-body-wrapper" ng-if="ifData">
+        <!-- <div class = "container head-banner">
+          <h3>Welcome to the NetApp Product Security Baseline (PSB)!</h3>
+        </div> -->
+        
+        <div class="container first-table">
+          <h2>Review Data</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Number</th>
+                <th>Requirement</th>
+                <th>Why?</th>
+                <th>Status<span class="mandatory">*</span></th>
+                <th>Justification<span class="mandatory">*</span></th>
+              </tr>
+            </thead>
+            <tbody ng-form = "psbForm">
+              <tr ng-repeat="tableData in tableDataIterator" ng-if="tableData.psb_id != undefined">
+                <td>{{tableData.psb_id}}</td>
+                <td>{{tableData.requirement}}</td>
+                <td>{{tableData.reason}}</td>
+                <td>
+                  <select ng-model="tableData.status" ng-required = "true" ng-disabled="isAdminViewing"> 
+                    <option 
+                     ng-repeat="statusOption in statusOptions">{{statusOption}}</option>
+                  </select>
+                </td>
+                <td><input 
+                  ng-required="true" 
+                  ng-model="tableData.justification" 
+                  ng-disabled="isAdminViewing"
+                  type = "text" placeholder="Put in justification" /></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="comment-box" style="margin: 15px 0px;">
+            <textarea ng-model = "tabledataIterator.comment" placeholder="Comnents" rows="4" style="width : 100%; resize : vertical; padding: 5px;"></textarea>
+          </div>
+        </div>
+        <footer>
+          <div class="footer-btn container">
+            <button ng-click="formAction('a')" ng-disabled = "tabledataIterator.comment == ''|| tabledataIterator.comment == undefined  " class="btn btn-lg btn-primary pull-right">Approve</button>
+            <button ng-click = "formAction('r')" ng-disabled = "tabledataIterator.comment == ''|| tabledataIterator.comment == undefined"  class="btn btn-lg btn-danger pull-right">Reject</button>
+	    <button class="btn btn-primary pull-left"
+          ng-click="backbutton()"
+          >Back</button>
+          </div>
+        </footer>
+      </section>
+      <section ng-if="!ifData" class="container">
+        <h1 style="text-align : center">No forms to approve!</h1>
+      </section>
+    
+    <style>
+      table {
+      border : 1px solid #000;
+    }
+    .table > thead > tr > th {
+      border : none;
+    }
+    .footer-btn > .btn{
+      width : 30%;
+    }
+    
+    </style>

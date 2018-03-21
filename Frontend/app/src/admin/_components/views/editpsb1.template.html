@@ -1,0 +1,86 @@
+<section class="main-body-wrapper">
+    
+    <div class = "container head-banner">
+      <h3>Welcome to the NetApp Product Security Baseline (PSB)!</h3>
+    </div>
+    
+    <div class="container first-table">
+      <h2>Fill the Table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Number</th>
+            <th>Requirement</th>
+            <th>Why?</th>
+            <th ng-show="!preview">Actions</th>
+            <th ng-show="preview">Status<span class="mandatory">*</span></th>
+            <th ng-show="preview">Justification<span class="mandatory">*</span></th>
+          </tr>
+        </thead>
+        <tbody ng-form = "psbForm">
+          <tr ng-repeat="tableData in tableDataIterator " ng-if="tableData.psb_id != undefined">
+            <td style="width : 150px;">
+              <span ng-show="preview">{{tableData.psb_id}}</span>
+              <span>
+                  <textarea ng-show="!preview" style="width : 100%; resize : vertical"
+                  ng-model="tableData.psb_id"></textarea>  
+              </span>
+            </td>
+            <td>
+              <span ng-show="preview">{{tableData.requirement}}</span>
+              <textarea ng-show="!preview" style="width : 100%; resize : vertical"
+                  ng-model="tableData.requirement"></textarea>
+            </td>
+            <td>
+              <span ng-show="preview">{{tableData.reason}}</span>
+              <textarea ng-show="!preview" style="width : 100%; resize : vertical"
+              ng-model="tableData.reason"></textarea>
+            </td>
+            <td ng-show="!preview">
+                <button ng-click="svPsb(tableDataIterator ,tableData ,$index)" class="btn btn-xs btn-primary" >Save</button>
+                <button ng-click="rmPsb(tableDataIterator ,tableData ,$index)" class="btn btn-xs btn-danger">delete</button>
+            </td>
+             
+              <td ng-show="preview">
+              <select> 
+                <option 
+                 ng-repeat="statusOption in statusOptions">{{statusOption}}</option>
+              </select>
+            </td>
+            <td ng-show="preview">
+              <input 
+              type = "text" placeholder="Put in justification" /></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="addBtn">
+        <button ng-click="addPsbRow()" class="btn btn-primary">Add PSB Requirement </button>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-btn container">
+      <button 
+      class="btn btn-lg btn-primary pull-right" 
+      ng-show="!preview" 
+      ng-click="previewPsb()">Preview</button>
+      <button 
+      class="btn btn-lg btn-primary pull-right" 
+      ng-show="preview" 
+      ng-click="previewPsb()">Edit</button>
+    </div>
+  </footer>
+
+<style>
+  table {
+  border : 1px solid #000;
+}
+.table > thead > tr > th {
+  border : none;
+}
+.footer-btn > .btn{
+  width : 30%;
+}
+
+</style>

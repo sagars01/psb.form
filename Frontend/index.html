@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+      <base href="/">
+
+    <!---Replace the href with - ./libs/jquery-ui.css -->
+    <link rel="stylesheet" href="./libs/jquery-ui.css">
+    <link rel="stylesheet" href="./libs/toaster.min.css" />
+    <link data-require="bootstrap@3.3.6" data-semver="3.3.6" rel="stylesheet" href="./libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    
+    
+      <!-- These files you already have in UNIX Local so this will be same  as before -->
+    <script src="./libs/jquery.min.js"></script>
+    <script src="./libs/bootstrap.min.js"></script>
+    <script src="./libs/jquery-ui.min.js"></script>
+    <script src="./libs/angular.min.js"></script>
+    <script src="./libs/ng-animate.js"></script>
+    <script src="./libs/angular-ui-router.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.17/angular-filter.min.js"></script> -->
+    <script src="./libs/angular-filter.min.js"></script>
+    <script src="./libs/toaster.min.js"></script>
+    <script src="./libs/filesaver.js"></script>
+    <!-- <script src="https://code.angularjs.org/1.6.7/angular-animate.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.2.0/toaster.min.js"></script> -->
+    <!--Replace src with ./libs/jquery-ui.js -->
+    
+    <!-- <script src="./libs/jquery-ui.min.js"></script> -->
+    
+    
+    <!--APP-->
+    <script src="./app.module.js"></script>
+    <script src="./shared.service.js"></script>
+    <script src="./base.controller.js"></script>
+    
+    <!--User-->
+     <script src="./app/src/user/user.controller.js"></script>
+     <script src="./app/src/admin/admin.controller.js"></script>
+     <script src="./app/src/manager/manager.controller.js"></script>
+     <script src="./app/src/shared/header/header.directive.js"></script>
+     <script src="./app/src/shared/backbtn/backbtn.directive.js"></script>
+     <script src="./app/src/shared/login/login.controller.js"></script>
+  </head>
+  <body ng-app = "save-app">
+    <div ng-controller="baseCtrl">
+    <header-nav></header-nav>
+     <ui-view></ui-view>
+     <toaster-container></toaster-container>
+    </div>
+  </body>
+</html>

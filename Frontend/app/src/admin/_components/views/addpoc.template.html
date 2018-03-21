@@ -1,0 +1,110 @@
+<div class="wrapper">
+    <section class="container main-body-wrapper" ng-form="preEngQuestionform">
+      <div class="head-banner">
+        <h3>Point of Contact</h3>
+      </div>
+      <!--Q & A table -->
+      <div class="first-table">
+        <table class="table">
+          
+            <!--Questionaire-->
+            <tr>
+              <td>Manager</td>
+              <td ng-repeat="m in main.manager track by $index">
+                  <input type="text" ng-model="m.name" placeholder="Manager Name">
+              </td>
+              <td>
+                <button class="btn btn-sm btn-primary" ng-click="addField('manager')">Add Manager</button>
+                <button class="btn btn-sm btn-primary" ng-click="removeField('manager')">Remove Manager</button>
+              </td>  
+            <tr >
+              <td>Product Engineer</td>
+              <td ng-repeat="e in main.engineer track by $index">  
+                <input type = "text" ng-model="e.name" placeholder="Engineer Name" />
+              </td>
+              <td>
+                  <button class="btn btn-sm btn-primary" ng-click="addField('engineer')">Add Engineer</button>
+                  <button class="btn btn-sm btn-primary" ng-click="removeField('engineer')">Remove Engineer</button>
+                </td>
+            </tr>
+            <tr >
+              <td>SDL Engineer Name</td>
+              <td ng-repeat="s in main.sdl track by $index">
+                <input type = "text" ng-model="s.name" placeholder="SDL Engineer Name" />
+              </td>
+              <td>
+                  <button class="btn btn-sm btn-primary" ng-click="addField('sdl')">Add Manager</button>
+                  <button class="btn btn-sm btn-primary" ng-click="removeField('sdl')">Remove Manager</button>
+              </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <footer>
+      <div class="footer-btn container">
+        <!-- <back-button></back-button> -->
+        <span><button class="btn btn-warning" ng-click="viewModalP()">View all POCs</button></span>
+        <button class="btn btn-md btn-primary pull-right" ng-click="savePoc()">Save</button>
+	<button class="btn btn-primary pull-left"
+          ng-click="backbutton()"
+          >Back</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 style="text-align : center">{{productPOC + " " + Version}}</h3>
+        </div>
+        <div class="modal-body">
+          <div class="poc-list"> 
+            <p>Manager</p>
+            <ul>
+              <li ng-repeat="m in pocManager">
+                {{m.toUpperCase()}}
+              </li>
+            </ul>
+          </div>
+          <div class="poc-list"> 
+            <p>Product Engineer</p>
+            <ul>
+              <li ng-repeat="e in engineer">
+                {{e.toUpperCase()}}
+              </li>
+            </ul>
+          </div>
+          <div class="poc-list"> 
+            <p>SDL Engineer</p>
+            <ul>
+              <li ng-repeat="s in sdl">
+                {{s.toUpperCase()}}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <style>
+  .table>tbody>tr>td {
+    border : none;
+  }
+  .first-table {
+    border: 1px solid;
+    margin-bottom: 10px;
+    overflow: scroll;
+  }
+  .first-table table {
+    border : none;
+  }
+  </style>
